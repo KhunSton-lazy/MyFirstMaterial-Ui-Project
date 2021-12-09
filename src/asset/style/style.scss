@@ -1,0 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFF0E5;
+}
+
+.container {
+    display: flex;
+}
+
+.chart {
+    display: flex;
+    align-items: center;
+    height: 65vh;
+    margin-left: 100px;
+}
+
