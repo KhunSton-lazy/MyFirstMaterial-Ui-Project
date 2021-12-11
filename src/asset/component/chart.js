@@ -22,10 +22,15 @@ const rows = [
 ];
 
 export function PaitentChart() {
+
+  const tableStyles = {
+    marginTop: "100px",
+    marginLeft: "70px"
+  }
   return (
     
         <TableContainer >
-        <Table style={{justifyItems: "center"}} sx={{ minWidth: "600"}} aria-label="simple table" align="center" alignItem="center">
+        <Table sx={{...tableStyles}}>
             <TableHead>
             <TableRow>
                 <TableCell><Typography variant="h5">Dessert (100g serving)</Typography></TableCell>

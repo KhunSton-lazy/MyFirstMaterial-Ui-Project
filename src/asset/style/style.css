@@ -14,22 +14,4 @@ body {
   display: -ms-flexbox;
   display: flex;
 }
-
-.chart {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 65vh;
-  margin-left: 100px;
-}
-
-/* mobile screen */
-@media (max-width: 40rem) {
-  body {
-    font-size: 24px;
-  }
-}
 /*# sourceMappingURL=style.css.map */

@@ -9,8 +9,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-import DynamicFormIcon from '@mui/icons-material/DynamicForm';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';import DynamicFormIcon from '@mui/icons-material/DynamicForm';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 import TableChartIcon from '@mui/icons-material/TableChart';
 import TableRowsIcon from '@mui/icons-material/TableRows';
@@ -20,20 +19,30 @@ import WidgetsIcon from '@mui/icons-material/Widgets';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import EventIcon from '@mui/icons-material/Event';
 import { Avatar } from '@mui/material';
+import { AccountSetting } from "./form"
+import { PaitentChart } from "./chart"
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { Container } from '@mui/material';
+
 
 export function NestedList() {
+  
+  const linkStyles = {
+    textDecoration: "none",
+    color: "theme.palette.text.primary"
+  }
 
   const [open, setOpen] = React.useState(true);
-
   const handleClick = () => {
     setOpen(!open);
   };
 
   return (
-    <div>
+    <Router>
+      <div style={{ display: 'flex' }}>
         <List 
       position="fix"
-      sx={{ marginRight: "20", maxHeight: "100vh", width: '100%', maxWidth: 400, color: "text.primary " }}
+      sx={{ maxHeight: "100vh", width: '100%', maxWidth: 400, color: "text.primary " }}
     >
       <ListItemButton>
         <ListItemIcon>
@@ -46,7 +55,7 @@ export function NestedList() {
   sx={{marginRight: "10px"}}
   alt="Remy Sharp"
 >
-  B
+  
 </Avatar>
         <ListItemText primary="Tiania Andrew" />
       </ListItemButton>
@@ -73,24 +82,24 @@ export function NestedList() {
           </ListItemButton>
           </List>
       </Collapse>
-          <ListItemButton>
-        <ListItemIcon>
-          <DynamicFormIcon />
-        </ListItemIcon>
-        <ListItemText primary="Forms" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemIcon>
-          <AutoStoriesIcon />
-        </ListItemIcon>
-        <ListItemText primary="Pages" />
-      </ListItemButton>
+
+      <Link to="/profile" sx={{...linkStyles}}>
+        <ListItemButton>
+          <ListItemIcon>
+            <ManageAccountsIcon />
+          </ListItemIcon>
+          <ListItemText primary="Profile" />
+        </ListItemButton>
+      </Link>
+      
+      <Link to="/about">
       <ListItemButton>
         <ListItemIcon>
           <TableChartIcon />
         </ListItemIcon>
         <ListItemText primary="Regular Tables" />
       </ListItemButton>
+      </Link>
       <ListItemButton>
         <ListItemIcon>
           <TableRowsIcon />
@@ -128,8 +137,23 @@ export function NestedList() {
         <ListItemText primary="Calendar" />
       </ListItemButton>
     </List>
-    </div>
+
+    <Switch>
+          <Route exact path="/profile">
+            <Container>
+              <AccountSetting />
+            </Container>
+          </Route>
+          <Route exact path="/about">
+            <Container>
+              <PaitentChart />
+            </Container>
+          </Route>
+        </Switch>
+        </div>
+    </Router>
     
   );
 }
  
+
